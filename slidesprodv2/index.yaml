@@ -10,6 +10,11 @@ indexes:
 # automatically uploaded to the admin console when you next deploy
 # your application using appcfg.py.
 
+- kind: api_greeting
+  properties:
+  - name: __key__
+    direction: desc
+
 - kind: api_greetings
   properties:
   - name: __key__
@@ -19,6 +24,11 @@ indexes:
   properties:
   - name: created
     direction: desc
+  - name: __key__
+    direction: desc
+
+- kind: djangae_gaedatastoreuser
+  properties:
   - name: __key__
     direction: desc
 
