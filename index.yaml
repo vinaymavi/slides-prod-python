@@ -20,6 +20,27 @@ indexes:
   - name: __key__
     direction: desc
 
+- kind: api_option
+  properties:
+  - name: __key__
+    direction: desc
+
+- kind: api_question
+  properties:
+  - name: __key__
+    direction: desc
+
+- kind: api_questionset
+  properties:
+  - name: __key__
+    direction: desc
+
+- kind: api_questionset
+  properties:
+  - name: class
+  - name: __key__
+    direction: desc
+
 - kind: cspreports_cspreport
   properties:
   - name: created
