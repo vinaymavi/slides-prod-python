@@ -1,20 +1,17 @@
 from django.http import HttpResponse
-from models import Greeting
-from rest_framework import routers, serializers, viewsets
 from rest_framework import status
-from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from rest_framework.request import Request
+from rest_framework.views import APIView
+from rest_framework.generics import ListCreateAPIView
+from models import QuestionSet
+from serializers import QuestionSetSerializer
 
-class GreetingSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Greeting
-        fields =('number','messaage')
+
+class QuestionSetList(ListCreateAPIView):
+    queryset = QuestionSet.objects.all()
+    serializer_class = QuestionSetSerializer
+
 
 def index(request):
-    return HttpResponse("Welcome to api page.")
-
-@api_view(['GET', 'POST'])
-def api(req):
-    greetings = Greeting.objects.all()
-    serializer = GreetingSerializer(greetings,many=True)
-    return Response(serializer.data,status=status.HTTP_200_OK)
+    return HttpResponse("Hello World")
