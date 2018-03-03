@@ -33,5 +33,6 @@ class Option(models.Model):
     text = models.CharField(max_length=160)
     is_correct = models.BooleanField(default=False)
     question = models.ForeignKey(Question)
+
     def __str__(self):
         return self.text
