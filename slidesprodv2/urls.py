@@ -19,6 +19,8 @@ urlpatterns = (
     url(r'^_ah/', include('djangae.urls')),
     url(r'^question-set/(?P<pk>[0-9]+)$', views.QuerySetDetail.as_view(),name="questionset-detail"),
     url(r'^question-set/questions/(?P<pk>[0-9]+)$', views.QuestionsList.as_view(),name="question-list"),
+    url(r'^question-set/question/(?P<pk>[0-9]+)$', views.QuestionDetail.as_view(),name="question-detail"),
+    url(r'^question-set/questions/options/(?P<pk>[0-9]+)$', views.OptionsList.as_view(),name="options-list"),
     url(r'^question-set/', views.QuestionSetList.as_view(),name="question_set-list"),
     # Note that by default this is also locked down with login:admin in app.yaml
     url(r'^admin/', include(admin.site.urls)),

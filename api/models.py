@@ -21,7 +21,7 @@ class Question(models.Model):
     image = models.URLField('Image URL', max_length=400)
     image_order = models.CharField('Image order to display', choices=IMAGE_ORDER, max_length=1)
     point = models.IntegerField('Question points')
-    question_set = models.ForeignKey(QuestionSet)
+    question_set = models.ForeignKey(QuestionSet,related_name='questions_set')
 
     def __str__(self):
         return self.desc
@@ -32,7 +32,7 @@ class Option(models.Model):
     type = models.CharField(max_length=1, choices=OPTION_TYPES)
     text = models.CharField(max_length=160)
     is_correct = models.BooleanField(default=False)
-    question = models.ForeignKey(Question)
+    question = models.ForeignKey(Question,related_name='options_set')
 
     def __str__(self):
         return self.text
